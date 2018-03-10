@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Button from 'material-ui/Button'
+import Button from 'material-ui/Button';
+import ic from 'insult-compliment';
 import './App.css';
 
 class App extends Component {
+
+  constructor() {
+    super()
+
+    this.state = {
+      text: ''
+    }
+  }
+
+  componentWillMount() {
+    let newText = ic.Insult();
+    this.setState({text: newText})
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +27,7 @@ class App extends Component {
           <h1 className="App-title">You spin me right round baby right round like a record baby right round round round</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          {this.state.text}
         </p>
         <Button>Button</Button>
       </div>
